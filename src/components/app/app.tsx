@@ -16,12 +16,18 @@ import { AppHeader, OrderInfo, IngredientDetails, Modal } from '@components';
 import { useLocation, useNavigate, Route, Routes } from 'react-router-dom';
 import { ProtectedRoute } from '../../components/protected-route';
 import { useDispatch } from '../../services/store';
+import { useEffect } from 'react';
+import { getIngredientsList } from '../../services/slices/burgerIngredientsSlice';
 
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const background = location.state?.background;
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getIngredientsList());
+  }, []);
 
   return (
     <div className={styles.app}>
@@ -30,7 +36,17 @@ const App = () => {
         <Route path='/' element={<ConstructorPage />} />
         <Route path='/feed' element={<Feed />} />
         <Route path='/feed/:number' element={<OrderInfo />} />
-        <Route path='/ingredients/:id' element={<IngredientDetails />} />
+        <Route
+          path='/ingredients/:id'
+          element={
+            <div className={styles.detailPageWrap}>
+              <p className={`text text_type_main-large ${styles.detailHeader}`}>
+                Детали ингредиента
+              </p>
+              <IngredientDetails />
+            </div>
+          }
+        />
         <Route
           path='/login'
           element={
@@ -42,7 +58,7 @@ const App = () => {
         <Route
           path='/register'
           element={
-            <ProtectedRoute>
+            <ProtectedRoute onlyUnAuth>
               <Register />
             </ProtectedRoute>
           }
@@ -50,7 +66,7 @@ const App = () => {
         <Route
           path='/forgot-password'
           element={
-            <ProtectedRoute>
+            <ProtectedRoute onlyUnAuth>
               <ForgotPassword />
             </ProtectedRoute>
           }
@@ -58,7 +74,7 @@ const App = () => {
         <Route
           path='/reset-password'
           element={
-            <ProtectedRoute>
+            <ProtectedRoute onlyUnAuth>
               <ResetPassword />
             </ProtectedRoute>
           }
@@ -66,7 +82,7 @@ const App = () => {
         <Route
           path='/profile'
           element={
-            <ProtectedRoute>
+            <ProtectedRoute onlyUnAuth>
               <Profile />
             </ProtectedRoute>
           }
@@ -74,7 +90,7 @@ const App = () => {
         <Route
           path='/profile/orders'
           element={
-            <ProtectedRoute>
+            <ProtectedRoute onlyUnAuth>
               <ProfileOrders />
             </ProtectedRoute>
           }
@@ -105,7 +121,7 @@ const App = () => {
             path='/profile/orders/:number'
             element={
               <Modal title={'Заказ'} onClose={() => navigate(-1)}>
-                <ProtectedRoute>
+                <ProtectedRoute onlyUnAuth>
                   <OrderInfo />
                 </ProtectedRoute>
               </Modal>

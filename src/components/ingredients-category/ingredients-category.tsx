@@ -8,6 +8,7 @@ export const IngredientsCategory = forwardRef<
   TIngredientsCategoryProps
 >(({ title, titleRef, ingredients }, ref) => {
   /** TODO: взять переменную из стора */
+
   const burgerConstructor = {
     bun: {
       _id: ''

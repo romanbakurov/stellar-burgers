@@ -1,15 +1,21 @@
 import { FC, useMemo } from 'react';
 import { TConstructorIngredient } from '@utils-types';
 import { BurgerConstructorUI } from '@ui';
+import { useDispatch } from '../../services/store';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { constructorBurgerSelector } from '../../services/slices/burgerConstructorSlice';
+import { isAuthCheckedSelector } from 'src/services/slices/userSlice';
 
 export const BurgerConstructor: FC = () => {
   /** TODO: взять переменные constructorItems, orderRequest и orderModalData из стора */
-  const constructorItems = {
-    bun: {
-      price: 0
-    },
-    ingredients: []
-  };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const constructorItems = useSelector(
+    constructorBurgerSelector.constructorItems
+  );
+  // const isAuth = useSelector(isAuthCheckedSelector);
 
   const orderRequest = false;
 
