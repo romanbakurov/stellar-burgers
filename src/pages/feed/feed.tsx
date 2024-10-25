@@ -12,16 +12,18 @@ export const Feed: FC = () => {
 
   useEffect(() => {
     dispatch(getFeedsList());
-  }, [dispatch]);
+  }, []);
 
   if (!orders.length) {
     return <Preloader />;
   }
 
-  <FeedUI
-    orders={orders}
-    handleGetFeeds={() => {
-      dispatch(getFeedsList());
-    }}
-  />;
+  return (
+    <FeedUI
+      orders={orders}
+      handleGetFeeds={() => {
+        dispatch(getFeedsList());
+      }}
+    />
+  );
 };

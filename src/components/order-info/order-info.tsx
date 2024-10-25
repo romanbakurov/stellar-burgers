@@ -2,7 +2,7 @@ import { FC, useEffect, useMemo, useState } from 'react';
 import { Preloader } from '../ui/preloader';
 import { OrderInfoUI } from '../ui/order-info';
 import { TIngredient, TOrder } from '@utils-types';
-import { useDispatch, useSelector } from '../../services/store';
+import { useSelector } from '../../services/store';
 import { getIngredientsSelector } from '../../services/slices/burgerIngredientsSlice';
 import { useParams } from 'react-router-dom';
 import { getOrderByNumberApi } from '@api';

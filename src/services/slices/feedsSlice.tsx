@@ -5,7 +5,7 @@ import { getFeedsApi } from '@api';
 export const getFeedsList = createAsyncThunk('feeds/getFeeds', getFeedsApi);
 
 export type TFeedsState = {
-  orders: Array<TOrder>;
+  orders: TOrder[];
   total: number;
   totalToday: number;
   loading: boolean;
@@ -35,6 +35,7 @@ export const feedsSlice = createSlice({
     builder
       .addCase(getFeedsList.pending, (state) => {
         state.loading = true;
+        state.error = undefined;
       })
       .addCase(getFeedsList.fulfilled, (state, action) => {
         state.orders = action.payload.orders;

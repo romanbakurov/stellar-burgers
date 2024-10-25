@@ -10,13 +10,13 @@ export const getIngredientsList = createAsyncThunk(
 export type TBurgerIngredientsState = {
   ingredients: TIngredient[];
   loading: boolean;
-  error: string | undefined;
+  error: string | null | undefined;
 };
 
 export const initialState: TBurgerIngredientsState = {
   ingredients: [],
   loading: false,
-  error: undefined
+  error: null
 };
 
 export const burgerIngredientsSlice = createSlice({
@@ -32,6 +32,7 @@ export const burgerIngredientsSlice = createSlice({
     builder
       .addCase(getIngredientsList.pending, (state) => {
         state.loading = true;
+        state.error = null;
       })
       .addCase(getIngredientsList.fulfilled, (state, action) => {
         state.ingredients = action.payload;
