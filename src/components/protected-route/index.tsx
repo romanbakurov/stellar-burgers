@@ -16,18 +16,17 @@ export const ProtectedRoute = ({
   children
 }: ProtectedRouteProps) => {
   const isAuthChecked = useSelector(isAuthCheckedSelector);
-  const user = useSelector(userDataSelector);
   const location = useLocation();
 
-  if (!isAuthChecked) {
-    return <Preloader />;
+  // if (!isAuthChecked) {
+  //   return <Preloader />;
+  // }
+
+  if (!onlyUnAuth && !isAuthChecked) {
+    return <Navigate replace to='/login' state={{ from: location }} />;
   }
 
-  if (!onlyUnAuth && !user) {
-    return <Navigate replace to='/Login' state={{ from: location }} />;
-  }
-
-  if (onlyUnAuth && user) {
+  if (onlyUnAuth && isAuthChecked) {
     const from = location.state?.from || { pathname: '/' };
     return <Navigate replace to={from} />;
   }

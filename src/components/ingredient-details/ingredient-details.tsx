@@ -10,7 +10,6 @@ export const IngredientDetails: FC = () => {
   const { ingredients } = useSelector(getIngredientsStateSelector);
   const { id } = useParams();
   const ingredientData = ingredients.find((i) => i._id === id);
-  console.log(ingredientData);
 
   if (!ingredientData) {
     return <Preloader />;

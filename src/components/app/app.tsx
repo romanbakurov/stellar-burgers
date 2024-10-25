@@ -18,6 +18,7 @@ import { ProtectedRoute } from '../../components/protected-route';
 import { useDispatch } from '../../services/store';
 import { useEffect } from 'react';
 import { getIngredientsList } from '../../services/slices/burgerIngredientsSlice';
+import { userGet } from '../../services/slices/userSlice';
 
 const App = () => {
   const location = useLocation();
@@ -27,7 +28,8 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getIngredientsList());
-  }, []);
+    // dispatch(userGet());
+  }, [dispatch]);
 
   return (
     <div className={styles.app}>
@@ -35,7 +37,6 @@ const App = () => {
       <Routes location={background || location}>
         <Route path='/' element={<ConstructorPage />} />
         <Route path='/feed' element={<Feed />} />
-        <Route path='/feed/:number' element={<OrderInfo />} />
         <Route
           path='/ingredients/:id'
           element={
@@ -50,7 +51,7 @@ const App = () => {
         <Route
           path='/login'
           element={
-            <ProtectedRoute>
+            <ProtectedRoute onlyUnAuth>
               <Login />
             </ProtectedRoute>
           }
@@ -82,7 +83,7 @@ const App = () => {
         <Route
           path='/profile'
           element={
-            <ProtectedRoute onlyUnAuth>
+            <ProtectedRoute>
               <Profile />
             </ProtectedRoute>
           }
@@ -90,7 +91,7 @@ const App = () => {
         <Route
           path='/profile/orders'
           element={
-            <ProtectedRoute onlyUnAuth>
+            <ProtectedRoute>
               <ProfileOrders />
             </ProtectedRoute>
           }
@@ -121,7 +122,7 @@ const App = () => {
             path='/profile/orders/:number'
             element={
               <Modal title={'Заказ'} onClose={() => navigate(-1)}>
-                <ProtectedRoute onlyUnAuth>
+                <ProtectedRoute>
                   <OrderInfo />
                 </ProtectedRoute>
               </Modal>

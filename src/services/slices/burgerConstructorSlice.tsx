@@ -33,14 +33,14 @@ export const burgerConstructorSlice = createSlice({
       state,
       action: PayloadAction<TConstructorIngredient>
     ) => {
-      state.ingredients = state.ingredients.filter(
-        (item) => item.id !== action.payload._id
+      const ingredientIndex = state.ingredients.findIndex(
+        (ingredient) => ingredient.id === action.payload.id
       );
+      if (ingredientIndex >= 0) {
+        state.ingredients.splice(ingredientIndex, 1);
+      }
     },
-    clearConstructor: (state) => {
-      state.bun = null;
-      state.ingredients = [];
-    },
+    clearConstructor: (state) => (state = initialState),
     replaceIngredients: (
       state,
       action: PayloadAction<TConstructorIngredient[]>
