@@ -1,6 +1,6 @@
 import { FC, useEffect, useMemo, useState } from 'react';
-import { Preloader } from '../ui/preloader';
-import { OrderInfoUI } from '../ui/order-info';
+import { Preloader } from '@ui';
+import { OrderInfoUI } from '@ui';
 import { TIngredient, TOrder } from '@utils-types';
 import { useSelector } from '../../services/store';
 import { getIngredientsSelector } from '../../services/slices/burgerIngredientsSlice';

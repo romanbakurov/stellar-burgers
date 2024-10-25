@@ -14,7 +14,7 @@ import styles from './app.module.css';
 
 import { AppHeader, OrderInfo, IngredientDetails, Modal } from '@components';
 import { useLocation, useNavigate, Route, Routes } from 'react-router-dom';
-import { ProtectedRoute } from '../../components/protected-route';
+import { ProtectedRoute } from '../protected-route';
 import { useDispatch } from '../../services/store';
 import { useEffect } from 'react';
 import { getIngredientsList } from '../../services/slices/burgerIngredientsSlice';

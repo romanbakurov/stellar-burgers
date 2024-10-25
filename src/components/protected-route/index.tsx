@@ -1,9 +1,5 @@
-import { Preloader } from '@ui';
 import { useSelector } from '../../services/store';
-import {
-  userDataSelector,
-  isAuthCheckedSelector
-} from '../../services/slices/userSlice';
+import { isAuthCheckedSelector } from '../../services/slices/userSlice';
 import { Navigate, useLocation } from 'react-router';
 
 type ProtectedRouteProps = {
