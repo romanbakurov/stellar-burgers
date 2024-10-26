@@ -41,12 +41,7 @@ export const burgerConstructorSlice = createSlice({
       }
     },
     clearConstructor: (state) => (state = initialState),
-    replaceIngredients: (
-      state,
-      action: PayloadAction<TConstructorIngredient[]>
-    ) => {
-      state.ingredients = action.payload;
-    },
+
     moveIngredientDown: (state, action: PayloadAction<number>) => {
       const index = action.payload;
       if (index < state.ingredients.length - 1) {
@@ -73,7 +68,6 @@ export const {
   addToIngredient,
   removeIngredient,
   clearConstructor,
-  replaceIngredients,
   moveIngredientDown,
   moveIngredientUp
 } = burgerConstructorSlice.actions;
