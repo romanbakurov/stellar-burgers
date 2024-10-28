@@ -13,8 +13,8 @@ export const ConstructorPage: FC = () => {
   const isIngredientsLoading = useSelector(getIngredientsLoadingSelector);
 
   return (
-    <DndProvider backend={HTML5Backend}>
-      <>
+    <>
+      <DndProvider backend={HTML5Backend} context={window}>
         {isIngredientsLoading ? (
           <Preloader />
         ) : (
@@ -30,7 +30,7 @@ export const ConstructorPage: FC = () => {
             </div>
           </main>
         )}
-      </>
-    </DndProvider>
+      </DndProvider>
+    </>
   );
 };

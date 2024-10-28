@@ -24,7 +24,7 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
   const dispatch = useDispatch();
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: 'ADD_CONSTRUCTOR',
-    drop: (item) => dispatch(addToIngredient(item)),
+    drop: (item: any) => dispatch(addToIngredient(item)),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop()
