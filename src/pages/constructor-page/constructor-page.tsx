@@ -14,10 +14,10 @@ export const ConstructorPage: FC = () => {
 
   return (
     <>
-      <DndProvider backend={HTML5Backend} context={window}>
-        {isIngredientsLoading ? (
-          <Preloader />
-        ) : (
+      {isIngredientsLoading ? (
+        <Preloader />
+      ) : (
+        <DndProvider backend={HTML5Backend} context={window}>
           <main className={styles.containerMain}>
             <h1
               className={`${styles.title} text text_type_main-large mt-10 mb-5 pl-5`}
@@ -29,8 +29,8 @@ export const ConstructorPage: FC = () => {
               <BurgerConstructor />
             </div>
           </main>
-        )}
-      </DndProvider>
+        </DndProvider>
+      )}
     </>
   );
 };
