@@ -6,7 +6,7 @@ import {
 } from '@zlden/react-developer-burger-ui-components';
 import styles from './burger-constructor.module.css';
 import { BurgerConstructorUIProps } from './type';
-import { TConstructorIngredient } from '@utils-types';
+import { TConstructorIngredient, TIngredient } from '@utils-types';
 import { BurgerConstructorElement, Modal } from '@components';
 import { Preloader, OrderDetailsUI } from '@ui';
 import { useDrop } from 'react-dnd';
@@ -24,7 +24,8 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
   const dispatch = useDispatch();
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: 'ADD_CONSTRUCTOR',
-    drop: (item: any) => dispatch(addToIngredient(item)),
+    drop: (item: TIngredient & { id: string }) =>
+      dispatch(addToIngredient(item)),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop()
