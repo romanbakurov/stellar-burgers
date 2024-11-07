@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { Preloader } from '../ui/preloader';
-import { IngredientDetailsUI } from '../ui/ingredient-details';
+import { Preloader } from '@ui';
+import { IngredientDetailsUI } from '@ui';
 import { useSelector } from '../../services/store';
 import { getIngredientsStateSelector } from '../../services/slices/burgerIngredientsSlice';
 import { useParams } from 'react-router-dom';
