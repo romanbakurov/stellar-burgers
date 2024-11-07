@@ -84,12 +84,44 @@ describe('burgerIngredientsSlice', () => {
     });
   });
 
-  describe('actions', () => {
-    it('getIngredientsList', async () => {
+  describe('extraReducers', () => {
+    it('pending', () => {
       const store = testStore();
-      await store.dispatch(getIngredientsList());
+      store.dispatch(getIngredientsList());
+
       const result = store.getState().burgerIngredients;
-      expect(result).toEqual(ingredientsData);
+      expect(result).toEqual({
+        ...initialState,
+        loading: true
+      });
+    });
+
+    it('rejected', () => {
+      const store = testStore();
+      const errorMessage = 'error';
+      store.dispatch({
+        type: getIngredientsList.rejected.type,
+        payload: errorMessage,
+        error: {
+          message: errorMessage
+        }
+      });
+
+      const result = store.getState().burgerIngredients;
+      expect(result.loading).toBe(false);
+      expect(result.error).toBe(errorMessage);
+    });
+
+    it('fulfilled', () => {
+      const store = testStore();
+      store.dispatch({
+        type: getIngredientsList.fulfilled.type,
+        payload: ingredientsData.ingredients
+      });
+
+      const result = store.getState().burgerIngredients;
+      expect(result.loading).toBe(false);
+      expect(result.ingredients).toEqual(ingredientsData.ingredients);
     });
   });
 });
