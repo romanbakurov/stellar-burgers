@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.81% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>53/64</span>
+                <span class='fraction'>64/64</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">16.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.81% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>53/64</span>
+                <span class='fraction'>64/64</span>
             </div>
         
             
@@ -161,25 +161,25 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -218,30 +218,30 @@ export const feedsSlice = createSlice({
   initialState,
   reducers: {},
   selectors: {
-    ordersSelector: <span class="fstat-no" title="function not covered" >(state) =&gt; state.</span>orders,
-    totalSelector: <span class="fstat-no" title="function not covered" >(state) =&gt; state.</span>total,
-    totalTodaySelector: <span class="fstat-no" title="function not covered" >(state) =&gt; state.</span>totalToday,
-    isLoadingSelector: <span class="fstat-no" title="function not covered" >(state) =&gt; state.</span>loading,
-    errorSelector: <span class="fstat-no" title="function not covered" >(state) =&gt; state.</span>error
+    ordersSelector: (state) =&gt; state.orders,
+    totalSelector: (state) =&gt; state.total,
+    totalTodaySelector: (state) =&gt; state.totalToday,
+    isLoadingSelector: (state) =&gt; state.loading,
+    errorSelector: (state) =&gt; state.error
   },
   extraReducers: (builder) =&gt; {
     builder
       .addCase(getFeedsList.pending, (state) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.loading = true;</span>
-<span class="cstat-no" title="statement not covered" >        state.error = undefined;</span>
+        state.loading = true;
+        state.error = undefined;
       })
       .addCase(getFeedsList.fulfilled, (state, action) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.orders = action.payload.orders;</span>
-<span class="cstat-no" title="statement not covered" >        state.total = action.payload.total;</span>
-<span class="cstat-no" title="statement not covered" >        state.totalToday = action.payload.totalToday;</span>
-<span class="cstat-no" title="statement not covered" >        state.loading = false;</span>
+        state.orders = action.payload.orders;
+        state.total = action.payload.total;
+        state.totalToday = action.payload.totalToday;
+        state.loading = false;
       })
       .addCase(getFeedsList.rejected, (state, action) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.orders = [];</span>
-<span class="cstat-no" title="statement not covered" >        state.total = 0;</span>
-<span class="cstat-no" title="statement not covered" >        state.totalToday = 0;</span>
-<span class="cstat-no" title="statement not covered" >        state.error = action.error.message;</span>
-<span class="cstat-no" title="statement not covered" >        state.loading = false;</span>
+        state.orders = [];
+        state.total = 0;
+        state.totalToday = 0;
+        state.error = action.error.message;
+        state.loading = false;
       });
   }
 });
@@ -262,7 +262,7 @@ export const feedsReducer = feedsSlice.reducer;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-11-07T15:43:24.017Z
+                at 2024-11-09T10:01:03.619Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.38% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>47/52</span>
+                <span class='fraction'>52/52</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/5</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.38% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>47/52</span>
+                <span class='fraction'>52/52</span>
             </div>
         
             
@@ -148,26 +148,26 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { getOrderByNumberApi, orderBurgerApi } from '@api';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { orderBurgerApi } from '@api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TOrder } from '@utils-types';
 &nbsp;
@@ -192,7 +192,7 @@ export const addOrderSlice = createSlice({
   name: 'addOrder',
   initialState,
   reducers: {
-    resetOrder: <span class="fstat-no" title="function not covered" >(state) =&gt; (s</span>tate = initialState)
+    resetOrder: (state) =&gt; (state = initialState)
   },
   selectors: {
     orderRequestSelector: <span class="fstat-no" title="function not covered" >(state) =&gt; state.</span>orderRequest,
@@ -202,15 +202,15 @@ export const addOrderSlice = createSlice({
   extraReducers: (builder) =&gt; {
     builder
       .addCase(addOrder.pending, (state) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.orderRequest = true;</span>
+        state.orderRequest = true;
       })
       .addCase(addOrder.rejected, (state, action) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.orderRequest = false;</span>
-<span class="cstat-no" title="statement not covered" >        state.error = action.error.message;</span>
+        state.orderRequest = false;
+        state.error = action.error.message;
       })
       .addCase(addOrder.fulfilled, (state, action) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.orderRequest = false;</span>
-<span class="cstat-no" title="statement not covered" >        state.orderModalData = action.payload.order;</span>
+        state.orderRequest = false;
+        state.orderModalData = action.payload.order;
       });
   }
 });
@@ -226,7 +226,7 @@ export const addOrderReducer = addOrderSlice.reducer;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-11-07T15:43:24.017Z
+                at 2024-11-09T10:01:03.619Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
