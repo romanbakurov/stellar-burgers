@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1731146463645" clover="3.2.0">
-  <project timestamp="1731146463646" name="All files">
+<coverage generated="1731157331357" clover="3.2.0">
+  <project timestamp="1731157331357" name="All files">
     <metrics statements="730" coveredstatements="526" conditionals="53" coveredconditionals="51" methods="48" coveredmethods="27" elements="831" coveredelements="604" complexity="0" loc="730" ncloc="730" packages="3" files="9" classes="9"/>
     <package name="services">
       <metrics statements="36" coveredstatements="36" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="store.ts" path="/Users/romanbakurov/dev/stellar-burgers/src/services/store.ts">
+      <file name="store.ts" path="/Users/romanbakurov/WebstormProjects/stellar-burgers/src/services/store.ts">
         <metrics statements="36" coveredstatements="36" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -46,7 +46,7 @@
     </package>
     <package name="services.slices">
       <metrics statements="412" coveredstatements="399" conditionals="52" coveredconditionals="50" methods="29" coveredmethods="26"/>
-      <file name="addOrderSlice.tsx" path="/Users/romanbakurov/dev/stellar-burgers/src/services/slices/addOrderSlice.tsx">
+      <file name="addOrderSlice.tsx" path="/Users/romanbakurov/WebstormProjects/stellar-burgers/src/services/slices/addOrderSlice.tsx">
         <metrics statements="52" coveredstatements="52" conditionals="5" coveredconditionals="5" methods="5" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -101,7 +101,7 @@
         <line num="51" count="1" type="stmt"/>
         <line num="52" count="1" type="stmt"/>
       </file>
-      <file name="burgerConstructorSlice.tsx" path="/Users/romanbakurov/dev/stellar-burgers/src/services/slices/burgerConstructorSlice.tsx">
+      <file name="burgerConstructorSlice.tsx" path="/Users/romanbakurov/WebstormProjects/stellar-burgers/src/services/slices/burgerConstructorSlice.tsx">
         <metrics statements="76" coveredstatements="73" conditionals="9" coveredconditionals="7" methods="7" coveredmethods="7"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -180,7 +180,7 @@
         <line num="75" count="1" type="stmt"/>
         <line num="76" count="1" type="stmt"/>
       </file>
-      <file name="burgerIngredientsSlice.tsx" path="/Users/romanbakurov/dev/stellar-burgers/src/services/slices/burgerIngredientsSlice.tsx">
+      <file name="burgerIngredientsSlice.tsx" path="/Users/romanbakurov/WebstormProjects/stellar-burgers/src/services/slices/burgerIngredientsSlice.tsx">
         <metrics statements="54" coveredstatements="54" conditionals="7" coveredconditionals="7" methods="4" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -237,7 +237,7 @@
         <line num="53" count="1" type="stmt"/>
         <line num="54" count="1" type="stmt"/>
       </file>
-      <file name="feedsSlice.tsx" path="/Users/romanbakurov/dev/stellar-burgers/src/services/slices/feedsSlice.tsx">
+      <file name="feedsSlice.tsx" path="/Users/romanbakurov/WebstormProjects/stellar-burgers/src/services/slices/feedsSlice.tsx">
         <metrics statements="64" coveredstatements="64" conditionals="9" coveredconditionals="9" methods="6" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -304,7 +304,7 @@
         <line num="63" count="1" type="stmt"/>
         <line num="64" count="1" type="stmt"/>
       </file>
-      <file name="ordersSlice.tsx" path="/Users/romanbakurov/dev/stellar-burgers/src/services/slices/ordersSlice.tsx">
+      <file name="ordersSlice.tsx" path="/Users/romanbakurov/WebstormProjects/stellar-burgers/src/services/slices/ordersSlice.tsx">
         <metrics statements="41" coveredstatements="41" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -348,7 +348,7 @@
         <line num="40" count="1" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
       </file>
-      <file name="userSlice.tsx" path="/Users/romanbakurov/dev/stellar-burgers/src/services/slices/userSlice.tsx">
+      <file name="userSlice.tsx" path="/Users/romanbakurov/WebstormProjects/stellar-burgers/src/services/slices/userSlice.tsx">
         <metrics statements="125" coveredstatements="115" conditionals="17" coveredconditionals="17" methods="5" coveredmethods="5"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -479,7 +479,7 @@
     </package>
     <package name="utils">
       <metrics statements="282" coveredstatements="91" conditionals="1" coveredconditionals="1" methods="18" coveredmethods="1"/>
-      <file name="burger-api.ts" path="/Users/romanbakurov/dev/stellar-burgers/src/utils/burger-api.ts">
+      <file name="burger-api.ts" path="/Users/romanbakurov/WebstormProjects/stellar-burgers/src/utils/burger-api.ts">
         <metrics statements="235" coveredstatements="89" conditionals="1" coveredconditionals="1" methods="15" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -717,7 +717,7 @@
         <line num="234" count="0" type="stmt"/>
         <line num="235" count="0" type="stmt"/>
       </file>
-      <file name="cookie.ts" path="/Users/romanbakurov/dev/stellar-burgers/src/utils/cookie.ts">
+      <file name="cookie.ts" path="/Users/romanbakurov/WebstormProjects/stellar-burgers/src/utils/cookie.ts">
         <metrics statements="47" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
