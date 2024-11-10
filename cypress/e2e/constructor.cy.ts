@@ -2,8 +2,8 @@ const ingredient = '[data-cy="ingredient-link-item"]';
 const constructor = '[data-cy="constructor"]';
 const modal = '[data-cy="modal"]';
 const modalOverlay = '[data-cy="modal-overlay"]';
-const order = '[data-cy="order-button"]';
 const closeModal = '[data-cy="close-modal"]';
+const ingredientBun = 'Краторная булка N-200i';
 
 describe('Проверяем бургер конструктор', () => {
   beforeEach(() => {
@@ -31,45 +31,65 @@ describe('Проверяем бургер конструктор', () => {
 
   describe('Проверяем добавление ингредиентов', () => {
     it('Добавляем ингредиент в конструктор', () => {
-      cy.get(ingredient).first().next().click();
-      cy.get(ingredient).eq(2).next().click();
-      cy.get(constructor).as('constructor');
-      cy.get('@constructor').should('contain', 'Краторная булка N-200i');
-      cy.get('@constructor').should(
-        'contain',
-        'Биокотлета из марсианской Магнолии'
-      );
+      cy.get(ingredient)
+        .contains(ingredientBun)
+        .parent()
+        .find('button')
+        .click();
+      cy.get(constructor).should('contain.text', ingredientBun);
     });
 
     it('Открывает и закрываем модалку', () => {
-      cy.get(ingredient).first().click();
-      cy.get(modal).as('modal');
-      cy.get('@modal').should('exist');
+      cy.get(ingredient).contains(ingredientBun).click();
+      cy.get(modal).should('be.visible');
+
       cy.get(closeModal).click();
-      cy.get('@modal').should('not.exist');
+      cy.get(modal).should('not.exist');
     });
 
     it('Открывает и закрываем модалку по оверлею', () => {
-      cy.get(ingredient).first().click();
-      cy.get(modal).as('modal');
-      cy.get('@modal').should('exist');
+      cy.get(ingredient).contains(ingredientBun).click();
+      cy.get(modal).should('exist');
+
       cy.get(modalOverlay).click('top', { force: true });
-      cy.get('@modal').should('not.exist');
+      cy.get(modal).should('not.exist');
     });
 
     it('Создание заказа', () => {
-      cy.get(ingredient).first().next().click();
-      cy.get(constructor).as('constructor');
-      cy.get(ingredient).eq(2).next().click();
-      cy.get(order).click();
-      cy.wait('@postOrder');
-      cy.get(modal).as('modal');
-      cy.get('@modal').should('exist');
-      cy.get('@modal').should('contain', '777');
-      cy.get('@modal').should('exist');
-      cy.get(modalOverlay).click('top', { force: true });
-      cy.get('@modal').should('not.exist');
-      cy.get('@constructor').should('contain', '');
+      cy.get(ingredient)
+        .contains(ingredientBun)
+        .parent()
+        .find('button')
+        .click({ force: true });
+
+      cy.get(ingredient)
+        .contains('Биокотлета из марсианской Магнолии')
+        .parent()
+        .find('button')
+        .click({ force: true });
+
+      cy.get(constructor)
+        .children()
+        .last()
+        .find('button')
+        .click({ force: true });
+
+      cy.wait('@postOrder').its('response.statusCode').should('eq', 200);
+
+      cy.get(modal).should('exist');
+      cy.get(modal).should('contain', '777');
+      cy.get(closeModal).click();
+      cy.get(modal).should('not.exist');
+
+      cy.get(constructor)
+        .children()
+        .first()
+        .should('contain.text', 'Выберите булки');
+      cy.get(constructor)
+        .children()
+        .first()
+        .next()
+        .should('contain.text', 'Выберите начинку');
     });
   });
 });
