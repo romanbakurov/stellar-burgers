@@ -31,6 +31,7 @@ describe('Проверяем бургер конструктор', () => {
 
   describe('Проверяем добавление ингредиентов', () => {
     it('Добавляем ингредиент в конструктор', () => {
+      cy.get(constructor).should('not.contain.text', ingredientBun);
       cy.get(ingredient)
         .contains(ingredientBun)
         .parent()
@@ -40,16 +41,20 @@ describe('Проверяем бургер конструктор', () => {
     });
 
     it('Открывает и закрываем модалку', () => {
+      cy.get(modal).should('not.exist');
       cy.get(ingredient).contains(ingredientBun).click();
-      cy.get(modal).should('be.visible');
+      cy.get(modal).should('exist');
+      cy.get(modal).should('contain', ingredientBun);
 
       cy.get(closeModal).click();
       cy.get(modal).should('not.exist');
     });
 
     it('Открывает и закрываем модалку по оверлею', () => {
+      cy.get(modal).should('not.exist');
       cy.get(ingredient).contains(ingredientBun).click();
       cy.get(modal).should('exist');
+      cy.get(modal).should('contain', ingredientBun);
 
       cy.get(modalOverlay).click('top', { force: true });
       cy.get(modal).should('not.exist');
